@@ -25,6 +25,7 @@
     margin-top: 35px;
     margin-left: 10px;
     height: 100px;
+    overflow: hidden;
 }
 
 .card-content:hover {
