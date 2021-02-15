@@ -1,0 +1,20 @@
+.nav-line {
+    text-align: center;
+    color: black;
+    background-color: lightblue;
+    border-bottom: 1px solid black;
+}
+
+.nav-chicken {
+    border-top: 1px solid black;
+}
+
+.outline {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.header {
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
