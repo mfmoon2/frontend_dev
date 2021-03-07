@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .fontGreen { color:green; }
+      .fontRed { color:red; }
+      .outlineGreen { border: 2px solid green; }
+      .outlineRed { border: 2px solid red; }
     </style>
       <script src="angular.min.js"></script>
       <script src="app.js"></script>
@@ -13,17 +17,20 @@
 <body ng-app="LunchCheck">
    <div class="container" ng-controller="LunchCheckController">
      <h1>Lunch Checker</h1>
-         <div class="form-group">
+         <div ng-class="inputClass">
              <input id="lunch-menu" type="text"
-             placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+                    placeholder="List comma separated dishes you usually have for lunch"
+                    class="form-control" ng-model="lunchInput">
          </div>
          <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
+             <button class="btn btn-default" ng-click="validateInput()">Check If Too Much</button>
          </div>
-         <div class="form-group message">
-           <!-- Your message can go here. -->
+         <div ng-class="messageClass">
+             <span ng-show="messageReady">{{message}}</span>
          </div>
+       <span ng-show="emptyDetected">
+           <small>NOTE: EMPTY ITEMS ARE NOT ADDING TO THE COUNT</small>
+       </span>
    </div>
 </body>
 </html>
