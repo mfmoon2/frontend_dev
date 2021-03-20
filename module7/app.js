@@ -5,10 +5,18 @@
         .controller('ToBuyController', ToBuyController)
         .service('ShoppingListCheckOffService', ShoppingListCheckOffService)
 
-    AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
-    function AlreadyBoughtController(ShoppingListCheckOffService) {
+    AlreadyBoughtController.$inject = ['ShoppingListCheckOffService', '$filter'];
+    function AlreadyBoughtController(ShoppingListCheckOffService, $filter) {
         let alreadyBought = this;
         alreadyBought.list = ShoppingListCheckOffService.getBought();
+
+        // $scope.getMessageForPurchasedItem = function (item) {
+        //     let total = item.quantity * item.pricePerItem;
+        //     let totalFormatted = "$" + $filter('currency')(total, "$$$", 2);
+        //     return "Bought " + item.quantity + " of " + item.name +
+        //         " for total price of " + totalFormatted
+        // }
+
     }
 
     ToBuyController.$inject = ['ShoppingListCheckOffService'];

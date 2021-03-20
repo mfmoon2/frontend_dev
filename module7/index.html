@@ -45,9 +45,11 @@
         <div ng-controller="AlreadyBoughtController as alreadyBought" class="col-md-6">
             <h2>Already Bought:</h2>
             <ul>
+<!--                <li ng-repeat="bought in alreadyBought.list">{{getMessageForPurchasedItem(bought)}}</li>-->
                 <li ng-repeat="bought in alreadyBought.list">
                     Bought {{bought.quantity}} of {{bought.name}} for
-                    total price of {{(bought.quantity * bought.pricePerItem)}}</li>
+                    total price of ${{(bought.quantity * bought.pricePerItem) | currency : "$$$" : 2}}
+                </li>
             </ul>
             <div ng-if="alreadyBought.list.length == 0" class="emptyMessage">Nothing bought yet.</div>
         </div>
