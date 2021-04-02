@@ -1,0 +1,24 @@
+<div ng-show="narrowItDown.found.length === 0" class="row">
+    <h4 class="centered">Nothing found</h4>
+</div>
+<table ng-show="narrowItDown.found.length > 0" class="table table-condensed table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th></th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="found in narrowItDown.found">
+            <td>{{found.name}}</td>
+            <td>{{found.short_name}}</td>
+            <td>{{found.description}}</td>
+            <td>
+                <button class="btn btn-sm btn-danger"
+                        ng-click="narrowItDown.remove($index)">Don't want this one!</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

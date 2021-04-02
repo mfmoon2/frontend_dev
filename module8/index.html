@@ -8,19 +8,21 @@
   </head>
 <body ng-app="NarrowItDownApp">
    <div class="container" ng-controller="NarrowItDownController as narrowItDown">
-    <h1>Narrow Down Your Chinese Menu Choice</h1>
-
-    <div class="form-group">
-      <input type="text" placeholder="Search Term" class="form-control">
-    </div>
-    <div class="form-group narrow-button">
-      <button class="btn btn-primary">Narrow It Down For Me!</button>
-    </div>
-
-    <!-- found-items should be implemented as a component -->
-    <found-items found-items="...." on-remove="...."></found-items>
-  </div>
-
+       <h1 class="centered">Narrow Down Your Chinese Menu Choice</h1>
+       <div class="row">
+           <div class="col-md-2"></div>
+           <div class="col-md-8">
+               <div class="input-group">
+                   <input type="text" class="form-control" ng-model="narrowItDown.search" placeholder="Search Term">
+                   <span class="input-group-btn">
+                        <button class="btn btn-primary" ng-click="narrowItDown.narrow()">Narrow It Down For Me!</button>
+                    </span>
+               </div>
+           </div>
+           <div class="col-md-2"></div>
+       </div>
+       <found-items ng-show="narrowItDown.callCount > 0" found="narrowItDown.found" on-remove="narrowItDown.remove(index)"></found-items>
+   </div>
    <script src="angular.min.js"></script>
    <script src="app.js"></script>
 </body>
