@@ -1,7 +1,17 @@
-<ul>
-    <li ng-repeat="item in $ctrl.items">
-        <a ui-sref="menuItem({categoryShortName: '{{item.short_name}}'})">
-            {{ item.name }} ({{item.short_name}})
-        </a>
-    </li>
-</ul>
+<div class="well">
+    <table class="table table-striped table-condensed">
+        <thead>
+        <th>Menu Categories <a ui-sref="home" class="btn btn-sm btn-primary pull-right">
+            <span class="glyphicon glyphicon-menu-left"></span> Home</a></th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in $ctrl.items">
+            <td>
+                <a ui-sref="menuItem({categoryShortName: '{{item.short_name}}'})">
+                    {{ item.name }} ({{item.short_name}})
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
