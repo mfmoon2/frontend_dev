@@ -12,32 +12,26 @@
                 lastName: "",
                 email: "",
                 phone: "",
-                favMenuItem: ""
+                favMenuItem: "",
+                fullFaveItem: {}
             };
             ctrl.registered = false;
         } else {
             ctrl.registered = true;
         }
         ctrl.register = function() {
-            let promise = UserInfoService.getMenuItems(ctrl.user.favMenuItem);
-            promise.then(function (response) {
-                ctrl.user.menuItem = response;
-                UserInfoService.register(ctrl.user);
-                ctrl.registered = true;
-                ctrl.errorFavItem = false;
-            })
-                .catch(function (error) {
-                    ctrl.invalidFavorite = true;
-                })
+            UserInfoService.register(ctrl.user);
+            ctrl.registered = true;
         }
         ctrl.validateFavMenuItem = function() {
             let promise = UserInfoService.getMenuItems(ctrl.user.favMenuItem);
             promise.then(function (response) {
+                ctrl.user.fullFavItem = response;
                 ctrl.errorFavItem = false;
             })
-                .catch(function (error) {
-                    ctrl.errorFavItem = true;
-                })
+            .catch(function (error) {
+                ctrl.errorFavItem = true;
+            })
         }
     }
 })();

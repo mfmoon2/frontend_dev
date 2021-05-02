@@ -1,0 +1,30 @@
+<div class="container">
+    <h4 class="text-center">User Information</h4>
+    <div ng-show="userCtrl.userInfo !== null">
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <div class="form-group">
+                    <input ng-model="userCtrl.userInfo.firstName" type="text"
+                           class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <input ng-model="userCtrl.userInfo.lastName"
+                           type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <input ng-model="userCtrl.userInfo.email"
+                           type="email" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <input ng-model="userCtrl.userInfo.phone"
+                           type="text" class="form-control" readonly>
+                </div>
+                <label>Favorite Menu Item:</label>
+                <menu-item menu-item="userCtrl.userInfo.fullFavItem"></menu-item>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+    <div ng-show="userCtrl.userInfo === null" class="text-center">Not signed up yet. Sign up now!</div>
+</div>

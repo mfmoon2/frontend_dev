@@ -25,11 +25,11 @@ function routeConfig ($stateProvider) {
       controller: 'RegisterController',
       controllerAs: 'registerCtrl'
     })
-    .state('public.userInfo', {
-      url: '/userInfo',
-      templateUrl: 'src/public/home/userInfo.html',
-      controller: 'userInfoController',
-      controllerAs: 'userInfoCtrl'
+    .state('public.user', {
+      url: '/user',
+      templateUrl: 'src/public/home/user.html',
+      controller: 'UserController',
+      controllerAs: 'userCtrl'
     })
     .state('public.menu', {
       url: '/menu',
