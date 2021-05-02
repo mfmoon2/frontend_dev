@@ -26,5 +26,7 @@
             <div class="col-sm-2"></div>
         </div>
     </div>
-    <div ng-show="userCtrl.userInfo === null" class="text-center">Not signed up yet. Sign up now!</div>
+    <div ng-show="userCtrl.userInfo === null" class="text-center">
+        Not signed up yet. <a ui-sref="public.register">Sign up now!</a>
+    </div>
 </div>

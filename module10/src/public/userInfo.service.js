@@ -2,14 +2,14 @@
     'use strict';
     angular.module('restaurant')
         .service('UserInfoService', UserInfoService);
-    UserInfoService.$inject = ['$http']
-    function UserInfoService($http) {
+    UserInfoService.$inject = ['$http', 'ApiPath']
+    function UserInfoService($http, ApiPath) {
         let service = this;
         let userInfo = null;
         service.getMenuItems = function(menuItem) {
             return $http({
                 method: "GET",
-                url: ("https://mmoon9-jhu.herokuapp.com/menu_items/" + menuItem + ".json")
+                url: (ApiPath + "/menu_items/" + menuItem + ".json")
             }).then(function (result) {
                 return result.data;
             });
